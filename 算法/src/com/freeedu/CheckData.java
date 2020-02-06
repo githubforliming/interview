@@ -11,7 +11,7 @@ import java.util.Random;
 public class CheckData {
 	
 	public static void main(String[] args) {
-		 if (check(100, 4000)) {
+		 if (check(10, 400)) {
 			 System.out.println("对着呢");
 		 } else {
 			 System.out.println("错了啊");
@@ -46,7 +46,7 @@ public class CheckData {
 			// 系统函数的排序 这个结果是对的
 			Arrays.sort(arrcp);
 			// 自己写的排序 这个结果要跟系统函数排序结果比较
-			MaoPaoPaixu2.sort2(arr);
+			XiErPaiXu.sort(arr);
 			// 循环进行比较 
 			for (int j=0;j<max;j++) {
 				if (arr[j] != arrcp[j]) {
