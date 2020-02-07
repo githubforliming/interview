@@ -3,6 +3,8 @@ package com.freeedu;
 import java.util.Arrays;
 import java.util.Random;
 
+import com.freeedu.p0206.GuiBingPaiXu;
+
 /**
  * 算法校验
  * @author LM
@@ -11,7 +13,7 @@ import java.util.Random;
 public class CheckData {
 	
 	public static void main(String[] args) {
-		 if (check(10, 400)) {
+		 if (check(1000, 400)) {
 			 System.out.println("对着呢");
 		 } else {
 			 System.out.println("错了啊");
@@ -46,7 +48,7 @@ public class CheckData {
 			// 系统函数的排序 这个结果是对的
 			Arrays.sort(arrcp);
 			// 自己写的排序 这个结果要跟系统函数排序结果比较
-			XiErPaiXu.sort(arr);
+			GuiBingPaiXu.sort(arr,0,arr.length-1);
 			// 循环进行比较 
 			for (int j=0;j<max;j++) {
 				if (arr[j] != arrcp[j]) {
