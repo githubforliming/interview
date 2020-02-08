@@ -19,10 +19,10 @@ public class Fzlb {
 		head.next=new ListNode(5);
 		
 	
-		reverseBetween(head, 1,2);
-		while(head.next !=null) {
-			System.out.println(head.val);
-			head = head.next;
+		ListNode res = reverseBetween(head, 1,2);
+		while(res !=null) {
+			System.out.println(res.val);
+			res = res.next;
 		}
 		
 	}
@@ -91,6 +91,39 @@ public class Fzlb {
 			return pre;
 		}
 		return head;
+	}
+	
+	/**
+	 * 输入: 1->2->3->4->5->NULL, m = 2, n = 4 1 ≤ m ≤ n ≤ 链表长度。 
+	 * 输出: 1->4->3->2->5->NULL
+	 * 在头前边 创建一个虚拟节点  Nodex->1->2->3->4->5->NULL
+	 * @param head
+	 * @return
+	 */
+	public static  ListNode reverseBetween2(ListNode head, int m, int n) {
+		ListNode fixed = new ListNode(0);
+		fixed.next = head;
+		ListNode firstPre =fixed;
+		
+		// 找到第m个元素的前一个 让firstPre指向前一个 如果m是1 那firstPre 就是新建的Node(0)
+		for (int i=1;i<m;i++) {
+			firstPre = firstPre.next;
+		}
+		
+		// 然后反转m到第n个的next
+		ListNode pre = null;
+		ListNode now = firstPre.next;
+		for (int i=m;i<=n;i++) {
+			ListNode tmp = now.next;
+			now.next=pre;
+			pre = now;
+			now = tmp;
+		}
+		
+		firstPre.next.next=now;
+		firstPre.next = pre;
+		
+		return fixed.next;
 	}
 }
 
